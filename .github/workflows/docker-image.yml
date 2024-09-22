@@ -27,3 +27,8 @@ jobs:
         docker buildx create --use
         docker buildx build --platform linux/amd64,linux/arm64 -t vouu/shhgit . --push
         docker system prune -af && docker buildx prune -af
+    - name: Build and Push Docker Image for shhgit wwww
+      run: |
+        docker buildx create --use
+        cd www && docker buildx build --platform linux/amd64,linux/arm64 -t vouu/shhgit-www . --push
+        cd www && docker system prune -af && docker buildx prune -af
